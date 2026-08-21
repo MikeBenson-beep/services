@@ -1,0 +1,9 @@
+.featured,
+.catalog,
+.contact {
+  scroll-margin-top: 78px;
+}
+
+.catalog {
+  overflow-anchor: none;
+}
