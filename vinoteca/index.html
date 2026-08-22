@@ -9,6 +9,7 @@
   <link rel="icon" href="assets/arte-liquido-logo.jpg" type="image/jpeg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="stability.css">
 </head>
@@ -23,12 +24,26 @@
       <span class="brand-type">Arte <em>Líquido</em><small>Winery & spirits</small></span>
     </a>
     <nav class="site-nav" aria-label="Navegación principal">
-      <a href="#seleccion">Selección</a>
-      <a href="#catalogo">Catálogo</a>
+      <button class="nav-catalog" id="catalog-menu-toggle" type="button" aria-expanded="false" aria-controls="catalog-menu">Catálogo <span>⌄</span></button>
+      <a href="#seleccion">Elegidos</a>
       <a href="#contacto">Contacto</a>
     </nav>
-    <a class="header-cta" href="https://wa.me/5491162136530?text=Hola%20Arte%20L%C3%ADquido%2C%20quiero%20hacer%20una%20consulta." target="_blank" rel="noopener">WhatsApp <span>↗</span></a>
+    <div class="header-actions">
+      <button class="header-search" id="header-search" type="button" aria-label="Buscar en el catálogo">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 4 4"></path></svg>
+      </button>
+      <a class="header-cta" href="https://wa.me/5491162136530?text=Hola%20Arte%20L%C3%ADquido%2C%20quiero%20hacer%20una%20consulta." target="_blank" rel="noopener">WhatsApp <span>↗</span></a>
+    </div>
   </header>
+
+  <div class="catalog-menu" id="catalog-menu" aria-hidden="true">
+    <button class="menu-backdrop" id="menu-backdrop" type="button" aria-label="Cerrar catálogo"></button>
+    <div class="catalog-menu-panel" role="dialog" aria-modal="true" aria-labelledby="menu-title">
+      <div class="menu-heading"><div><span>Explorá a tu manera</span><h2 id="menu-title">Todo el catálogo</h2></div><button id="catalog-menu-close" type="button" aria-label="Cerrar">×</button></div>
+      <div class="menu-groups" id="menu-groups"></div>
+      <button class="menu-all" type="button" data-category="todos"><span>Ver todos los productos</span><b id="menu-total">200</b></button>
+    </div>
+  </div>
 
   <main id="inicio">
     <section class="hero">
@@ -37,9 +52,7 @@
         <p class="kicker"><span></span>Curaduría líquida · Buenos Aires</p>
         <h1>Botellas con<br><em>algo que decir.</em></h1>
         <p class="hero-lead">Vinos de autor, destilados y hallazgos para una mesa que se recuerda.</p>
-        <div class="hero-actions">
-          <a class="button button-solid" href="#catalogo">Explorar catálogo <span>↓</span></a>
-        </div>
+        <div class="hero-actions"><button class="button button-solid" id="hero-catalog-button" type="button">Explorar catálogo <span>→</span></button></div>
         <div class="hero-stats">
           <div><strong id="product-total">200</strong><span>productos</span></div>
           <div><strong>15</strong><span>categorías</span></div>
@@ -68,11 +81,14 @@
 
     <section class="catalog" id="catalogo" aria-labelledby="catalog-title">
       <div class="catalog-title-row">
-        <div><p class="kicker"><span></span>Catálogo completo</p><h2 id="catalog-title">Encontrá tu<br><em>próxima botella.</em></h2></div>
-        <div class="catalog-intro"><p>Buscá por nombre, navegá por categoría y afiná la selección con subcategorías.</p><span id="result-count">200 productos</span></div>
+        <div><p class="kicker"><span></span>Catálogo completo</p><h2 id="catalog-title">Elegir bien puede<br><em>ser muy simple.</em></h2></div>
+        <div class="catalog-intro"><p>Categorías claras, búsqueda rápida y una selección pensada para descubrir sin perderse.</p><span id="result-count">200 productos</span></div>
       </div>
 
-      <div class="catalog-search-row">
+      <div class="family-navigation" id="family-navigation" aria-label="Familias del catálogo"></div>
+
+      <div class="catalog-toolbar">
+        <button class="browse-button" id="browse-button" type="button"><span class="browse-icon">☰</span><span>Categorías</span><b id="browse-current">Todas</b></button>
         <label class="search-box">
           <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 4 4"></path></svg>
           <input id="search" type="search" placeholder="Buscar vino, bodega, varietal..." autocomplete="off">
@@ -80,20 +96,15 @@
         <label class="sort-box"><span>Ordenar</span><select id="sort"><option value="featured">Destacados</option><option value="price-asc">Menor precio</option><option value="price-desc">Mayor precio</option><option value="name">Nombre A–Z</option></select></label>
       </div>
 
-      <div class="catalog-layout">
-        <aside class="category-sidebar" aria-label="Categorías">
-          <p>Categorías</p>
-          <div id="categories"></div>
-        </aside>
-        <div class="catalog-content">
-          <div class="active-category-row">
-            <div><span class="active-label">Explorando</span><h3 id="active-category-title">Todo el catálogo</h3><p id="active-category-description">Una selección completa de vinos, bebidas y objetos para disfrutar mejor.</p></div>
+      <div class="catalog-content">
+          <div class="collection-banner" id="collection-banner">
+            <div class="collection-copy"><span class="active-label">Colección</span><h3 id="active-category-title">Todo el catálogo</h3><p id="active-category-description">Una selección completa de vinos, bebidas y objetos para disfrutar mejor.</p></div>
+            <div class="collection-image" id="collection-image" aria-hidden="true"></div>
           </div>
           <div class="subcategory-row" id="subcategories" aria-label="Subcategorías"></div>
           <div class="product-grid" id="product-grid" aria-live="polite"></div>
           <p class="empty-state" id="empty-state" hidden>No encontramos productos con esos filtros.</p>
           <button class="load-more" id="load-more" type="button">Ver más productos <span>↓</span></button>
-        </div>
       </div>
     </section>
 
@@ -120,7 +131,7 @@
   <dialog class="product-dialog" id="product-dialog">
     <button class="dialog-close" id="dialog-close" type="button" aria-label="Cerrar">×</button>
     <div class="dialog-image" id="dialog-image"></div>
-    <div class="dialog-copy"><span id="dialog-category"></span><h2 id="dialog-name"></h2><div class="dialog-price" id="dialog-price"></div><p id="dialog-stock"></p><div class="dialog-actions"><a class="button button-solid" id="dialog-buy" target="_blank" rel="noopener">Ver en tienda <span>↗</span></a><a class="quiet-link light" id="dialog-whatsapp" target="_blank" rel="noopener">Consultar <span>↗</span></a></div></div>
+    <div class="dialog-copy"><span id="dialog-category"></span><h2 id="dialog-name"></h2><div class="dialog-price" id="dialog-price"></div><p id="dialog-stock"></p><div class="dialog-actions"><a class="button button-solid" id="dialog-whatsapp" target="_blank" rel="noopener">Consultar por WhatsApp <span>↗</span></a></div></div>
   </dialog>
 
   <a class="whatsapp-float" href="https://wa.me/5491162136530?text=Hola%20Arte%20L%C3%ADquido%2C%20quiero%20hacer%20una%20consulta." target="_blank" rel="noopener" aria-label="Contactar por WhatsApp"><img src="assets/whatsapp.svg" alt=""></a>

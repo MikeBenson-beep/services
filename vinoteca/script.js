@@ -8,19 +8,6 @@ const imageFor = (product, full = false) => {
   return full ? image.replace('thumb_280_', '') : image;
 };
 
-const curatedNames = [
-  'Gran Enemigo - CORTE -',
-  'Gin Mare Mediterranean 700 Ml Colección De Autor España',
-  'SCAPA THE ORCADIAN - ESTUCHE',
-  'Coleccion *La Trifulca *',
-  'DV CATENA *ADRIANNA VINEYRARD* MALBEC 2022',
-  'El Festin de los Raros - Edicion Limitada',
-  'Forastero Red Blend * ESTUCHE MADERA *',
-  "Hendrick's Gin",
-  'CHIVAS REGAL MIZUNARA C/ ESTUCHE',
-  'Claroscuro GRAN RESERVA 2019'
-];
-
 const categoryMeta = {
   'vinos-tintos': { name: 'Vinos tintos', short: 'Tintos', description: 'Malbec, blends y grandes etiquetas para guardar o abrir hoy.' },
   'vinos-blancos': { name: 'Vinos blancos', short: 'Blancos', description: 'Blancos frescos, aromáticos y expresivos para cada mesa.' },
@@ -36,25 +23,35 @@ const categoryMeta = {
   regalleria: { name: 'Regalería', short: 'Regalería', description: 'Estuches, colecciones y objetos con presencia propia.' },
   cristaleria: { name: 'Cristalería', short: 'Cristalería', description: 'Copas, vasos y piezas para servir como corresponde.' },
   'sin-alcohol': { name: 'Sin alcohol', short: 'Sin alcohol', description: 'Alternativas, gaseosas y opciones para todos.' },
-  farockaway: { name: 'Farockaway · Cocina', short: 'Cocina', description: 'Platos y algo dulce para acompañar la experiencia.' }
+  farockaway: { name: 'Cocina Farockaway', short: 'Cocina', description: 'Platos y algo dulce para acompañar la experiencia.' }
 };
-const categoryOrder = Object.keys(categoryMeta);
+
+const families = [
+  { id: 'vinos', name: 'Vinos & burbujas', tagline: 'Tintos, blancos y espumantes', categories: ['vinos-tintos', 'vinos-blancos', 'espumante-champagne'] },
+  { id: 'destilados', name: 'Destilados', tagline: 'Whisky, gin, vodka y licores', categories: ['whiskys', 'gin', 'vodka', 'licores', 'aperitivos'] },
+  { id: 'cervezas', name: 'Cervezas', tagline: 'Clásicas, artesanales y packs', categories: ['cervezas'] },
+  { id: 'regalos', name: 'Regalos & bar', tagline: 'Regalería, cristalería y botánicos', categories: ['regalleria', 'cristaleria', 'mixologia-botanica', 'promociones'] },
+  { id: 'alternativas', name: 'Sin alcohol & cocina', tagline: 'Algo rico para cada momento', categories: ['sin-alcohol', 'farockaway'] }
+];
+
+const curatedNames = [
+  'Gran Enemigo - CORTE -',
+  'Gin Mare Mediterranean 700 Ml Colección De Autor España',
+  'SCAPA THE ORCADIAN - ESTUCHE',
+  'Coleccion *La Trifulca *'
+];
 
 let activeCategory = 'todos';
 let activeSubcategory = 'todos';
 let visibleCount = 20;
 
 function familyFor(product) {
-  if (['vinos-tintos', 'vinos-blancos', 'espumante-champagne'].includes(product.category)) return 'Vinos & espumantes';
-  if (['whiskys', 'gin', 'vodka', 'licores', 'aperitivos'].includes(product.category)) return 'Destilados & aperitivos';
-  if (product.category === 'cervezas') return 'Cervezas';
-  if (['regalleria', 'cristaleria', 'promociones', 'mixologia-botanica'].includes(product.category)) return 'Regalos & accesorios';
-  if (product.category === 'sin-alcohol') return 'Sin alcohol';
-  return 'Cocina';
+  return families.find(family => family.categories.includes(product.category))?.name || 'Selección';
 }
 
 function subcategoryFor(product) {
   if (activeCategory === 'todos') return familyFor(product);
+  if (activeCategory.startsWith('family:')) return categoryMeta[product.category]?.name || 'Selección';
   const n = normal(product.name);
   const has = (...terms) => terms.some(term => n.includes(term));
   switch (product.category) {
@@ -63,7 +60,7 @@ function subcategoryFor(product) {
     case 'vinos-blancos':
       if (has('chardonnay')) return 'Chardonnay'; if (has('sauvignon')) return 'Sauvignon Blanc'; if (has('pinot gris')) return 'Pinot Gris'; if (has('moscato', 'tardia', 'dulce')) return 'Dulces & aromáticos'; return 'Otros blancos';
     case 'espumante-champagne':
-      if (has('rose', 'rose', 'rosado')) return 'Rosé'; if (has('zero', '0%')) return 'Sin alcohol'; if (has('petnat', 'pet nat', 'naranjo')) return 'Pet Nat & naranjos'; if (has('brut', 'champagne', 'sparkling')) return 'Brut & espumantes'; return 'Especiales';
+      if (has('rose', 'rosado')) return 'Rosé'; if (has('zero', '0%')) return 'Sin alcohol'; if (has('petnat', 'pet nat', 'naranjo')) return 'Pet Nat & naranjos'; if (has('brut', 'champagne', 'sparkling')) return 'Brut & espumantes'; return 'Especiales';
     case 'whiskys':
       if (has('jack daniel', 'tennessee', 'bourbon')) return 'Bourbon & Tennessee'; if (has('rye')) return 'Rye'; if (has('kamiki')) return 'Japonés'; if (has('chivas', 'scapa', 'scotch')) return 'Scotch'; return 'Kits & especiales';
     case 'gin':
@@ -98,44 +95,58 @@ function featuredScore(product) {
   return categoryWeight + Math.min(currentPrice(product) / 5000, 45) + (product.image ? 12 : 0) + Math.min(discountFor(product), 20);
 }
 
+function representative(category) {
+  const family = category.startsWith('family:') ? families.find(item => item.id === category.split(':')[1]) : null;
+  const candidates = products.filter(product => category === 'todos' || product.category === category || family?.categories.includes(product.category));
+  return candidates.sort((a, b) => featuredScore(b) - featuredScore(a))[0];
+}
+
 function renderHero() {
-  const preferred = ['Gran Enemigo - CORTE -', 'Gin Mare Mediterranean 700 Ml Colección De Autor España'];
-  const chosen = preferred.map(name => products.find(product => product.name === name)).filter(Boolean);
+  const chosen = curatedNames.slice(0, 2).map(name => products.find(product => product.name === name)).filter(Boolean);
   if (chosen.length < 2) chosen.push(...products.filter(product => product.image && product.salePrice).slice(0, 2 - chosen.length));
-  const heroCard = product => `<img src="${safe(imageFor(product, true))}" alt="${safe(product.name)}"><span>${safe(categoryMeta[product.category]?.short || product.category)}</span><strong>${safe(product.name)}</strong>`;
+  const heroCard = product => product ? `<img src="${safe(imageFor(product, true))}" alt="${safe(product.name)}"><span>${safe(categoryMeta[product.category]?.short || product.category)}</span><strong>${safe(product.name)}</strong>` : '';
   $('#hero-product-main').innerHTML = heroCard(chosen[0]);
   $('#hero-product-side').innerHTML = heroCard(chosen[1]);
   $('#product-total').textContent = products.length;
+  $('#menu-total').textContent = products.length;
 }
 
 function productCard(product, featured = false) {
   const discount = discountFor(product);
-  const price = currentPrice(product);
   return `<article class="product-card${featured ? ' is-featured' : ''}">
     <button class="product-open" type="button" data-id="${product.id}" aria-label="Ver ${safe(product.name)}">
-      <span class="product-visual"><img loading="lazy" src="${safe(imageFor(product, featured))}" alt="${safe(product.name)}">${discount ? `<small class="sale-badge">-${discount}%</small>` : ''}${product.stock === 0 ? '<small class="stock-badge">Sin stock</small>' : ''}<i class="view-product">Ver detalle ↗</i></span>
-      <span class="product-body"><small>${safe(categoryMeta[product.category]?.short || product.category)}</small><strong>${safe(product.name)}</strong><span class="price-line">${discount ? `<s>${money(product.price)}</s>` : ''}<b>${money(price)}</b></span></span>
+      <span class="product-visual"><img loading="lazy" src="${safe(imageFor(product, featured))}" alt="${safe(product.name)}">${discount ? `<small class="sale-badge">-${discount}%</small>` : ''}${product.stock === 0 ? '<small class="stock-badge">Sin stock</small>' : ''}<i class="view-product">Ver detalle</i></span>
+      <span class="product-body"><small>${safe(categoryMeta[product.category]?.short || product.category)}</small><strong>${safe(product.name)}</strong><span class="price-line">${discount ? `<s>${money(product.price)}</s>` : ''}<b>${money(currentPrice(product))}</b></span></span>
     </button>
   </article>`;
 }
 
 function renderFeatured() {
-  const names = ['Gran Enemigo - CORTE -', 'Gin Mare Mediterranean 700 Ml Colección De Autor España', 'SCAPA THE ORCADIAN - ESTUCHE', 'Coleccion *La Trifulca *'];
-  let selection = names.map(name => products.find(product => product.name === name)).filter(Boolean);
+  let selection = curatedNames.map(name => products.find(product => product.name === name)).filter(Boolean);
   if (selection.length < 4) selection.push(...products.filter(product => product.image && product.salePrice && !selection.includes(product)).slice(0, 4 - selection.length));
-  $('#featured-grid').innerHTML = selection.map(product => productCard(product, true)).join('');
+  $('#featured-grid').innerHTML = selection.slice(0, 4).map(product => productCard(product, true)).join('');
 }
 
-function renderCategories() {
-  const totalButton = `<button type="button" class="category-button ${activeCategory === 'todos' ? 'is-active' : ''}" data-category="todos"><span>Todo</span><b>${products.length}</b></button>`;
-  $('#categories').innerHTML = totalButton + categoryOrder.map(category => {
-    const count = products.filter(product => product.category === category).length;
-    return `<button type="button" class="category-button ${activeCategory === category ? 'is-active' : ''}" data-category="${category}"><span>${categoryMeta[category].name}</span><b>${count}</b></button>`;
+function renderNavigation() {
+  $('#menu-groups').innerHTML = families.map(family => `
+    <section class="menu-group"><span>${safe(family.tagline)}</span><h3>${safe(family.name)}</h3><div>
+      ${family.categories.map(category => `<button type="button" data-category="${category}"><span>${safe(categoryMeta[category].name)}</span><b>${products.filter(product => product.category === category).length}</b></button>`).join('')}
+    </div></section>`).join('');
+
+  $('#family-navigation').innerHTML = families.slice(0, 4).map(family => {
+    const product = representative(family.categories[0]);
+    return `<article class="family-card">
+      <button type="button" data-category="family:${family.id}">
+        <span class="family-image" style="background-image:url('${safe(imageFor(product, true))}')"></span>
+        <span class="family-copy"><small>${safe(family.tagline)}</small><strong>${safe(family.name)}</strong><i>Explorar →</i></span>
+      </button>
+    </article>`;
   }).join('');
 }
 
 function renderSubcategories() {
-  const categoryProducts = products.filter(product => activeCategory === 'todos' || product.category === activeCategory);
+  const activeFamily = activeCategory.startsWith('family:') ? families.find(family => family.id === activeCategory.split(':')[1]) : null;
+  const categoryProducts = products.filter(product => activeCategory === 'todos' || product.category === activeCategory || activeFamily?.categories.includes(product.category));
   const subcategories = [...new Set(categoryProducts.map(subcategoryFor))].sort();
   if (!subcategories.includes(activeSubcategory)) activeSubcategory = 'todos';
   $('#subcategories').innerHTML = `<button type="button" class="subcategory ${activeSubcategory === 'todos' ? 'is-active' : ''}" data-subcategory="todos">Todos</button>` + subcategories.map(sub => `<button type="button" class="subcategory ${activeSubcategory === sub ? 'is-active' : ''}" data-subcategory="${safe(sub)}">${safe(sub)}</button>`).join('');
@@ -144,7 +155,8 @@ function renderSubcategories() {
 function filteredProducts() {
   const query = normal($('#search').value.trim());
   let result = products.filter(product => {
-    const categoryMatch = activeCategory === 'todos' || product.category === activeCategory;
+    const activeFamily = activeCategory.startsWith('family:') ? families.find(family => family.id === activeCategory.split(':')[1]) : null;
+    const categoryMatch = activeCategory === 'todos' || product.category === activeCategory || activeFamily?.categories.includes(product.category);
     const subcategoryMatch = activeSubcategory === 'todos' || subcategoryFor(product) === activeSubcategory;
     const searchMatch = !query || normal(`${product.name} ${categoryMeta[product.category]?.name || ''} ${subcategoryFor(product)}`).includes(query);
     return categoryMatch && subcategoryMatch && searchMatch;
@@ -157,22 +169,50 @@ function filteredProducts() {
   return result;
 }
 
-function renderCatalog() {
+function renderCollection() {
   const result = filteredProducts();
   const shown = result.slice(0, visibleCount);
   $('#product-grid').innerHTML = shown.map(product => productCard(product)).join('');
   $('#result-count').textContent = `${result.length} ${result.length === 1 ? 'producto' : 'productos'}`;
   $('#empty-state').hidden = result.length !== 0;
   $('#load-more').hidden = shown.length >= result.length;
-  const meta = activeCategory === 'todos' ? { name: 'Todo el catálogo', description: 'Una selección completa de vinos, bebidas y objetos para disfrutar mejor.' } : categoryMeta[activeCategory];
+  const activeFamily = activeCategory.startsWith('family:') ? families.find(family => family.id === activeCategory.split(':')[1]) : null;
+  const meta = activeCategory === 'todos'
+    ? { name: 'Todo el catálogo', short: 'Todas', description: 'Una selección completa de vinos, bebidas y objetos para disfrutar mejor.' }
+    : activeFamily
+      ? { name: activeFamily.name, short: activeFamily.name, description: activeFamily.tagline + '. Una selección reunida para comparar y descubrir con facilidad.' }
+      : categoryMeta[activeCategory];
   $('#active-category-title').textContent = meta.name;
   $('#active-category-description').textContent = meta.description;
+  $('#browse-current').textContent = meta.short || meta.name;
+  const imageProduct = representative(activeCategory);
+  $('#collection-image').style.backgroundImage = imageProduct ? `url('${imageFor(imageProduct, true)}')` : '';
+  document.querySelectorAll('[data-category]').forEach(button => button.classList.toggle('is-active', button.dataset.category === activeCategory));
 }
 
-function resetAndRender() { visibleCount = 20; renderSubcategories(); renderCatalog(); }
-function restoreScroll(position) {
-  window.scrollTo(0, position);
-  requestAnimationFrame(() => window.scrollTo(0, position));
+function resetAndRender() { visibleCount = 20; renderSubcategories(); renderCollection(); }
+
+function closeCatalogMenu() {
+  $('#catalog-menu').classList.remove('is-open');
+  $('#catalog-menu').setAttribute('aria-hidden', 'true');
+  $('#catalog-menu-toggle').setAttribute('aria-expanded', 'false');
+  document.body.classList.remove('menu-open');
+}
+
+function openCatalogMenu() {
+  $('#catalog-menu').classList.add('is-open');
+  $('#catalog-menu').setAttribute('aria-hidden', 'false');
+  $('#catalog-menu-toggle').setAttribute('aria-expanded', 'true');
+  document.body.classList.add('menu-open');
+  requestAnimationFrame(() => $('#catalog-menu-close').focus());
+}
+
+function selectCategory(category, shouldScroll = true) {
+  activeCategory = category;
+  activeSubcategory = 'todos';
+  resetAndRender();
+  closeCatalogMenu();
+  if (shouldScroll) $('#collection-banner').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 function openProduct(id) {
@@ -184,36 +224,41 @@ function openProduct(id) {
   $('#dialog-name').textContent = product.name;
   $('#dialog-price').innerHTML = `${discount ? `<s>${money(product.price)}</s>` : ''}<strong>${money(currentPrice(product))}</strong>`;
   $('#dialog-stock').textContent = product.stock === null ? 'Consultá disponibilidad' : product.stock > 0 ? `${product.stock} unidades disponibles` : 'Sin stock en este momento';
-  $('#dialog-buy').href = product.url;
   $('#dialog-whatsapp').href = `https://wa.me/5491162136530?text=${encodeURIComponent(`Hola Arte Líquido, quiero consultar por ${product.name}.`)}`;
   $('#product-dialog').showModal();
 }
 
-$('#categories').addEventListener('click', event => {
-  const button = event.target.closest('[data-category]'); if (!button) return;
-  const scrollPosition = window.scrollY;
-  activeCategory = button.dataset.category; activeSubcategory = 'todos';
-  $('#categories').querySelectorAll('.category-button').forEach(item => item.classList.toggle('is-active', item === button));
-  resetAndRender();
-  restoreScroll(scrollPosition);
+document.addEventListener('click', event => {
+  const categoryButton = event.target.closest('[data-category]');
+  if (categoryButton) selectCategory(categoryButton.dataset.category);
+  const productButton = event.target.closest('.product-open');
+  if (productButton) openProduct(productButton.dataset.id);
 });
+
 $('#subcategories').addEventListener('click', event => {
-  const button = event.target.closest('[data-subcategory]'); if (!button) return;
-  const scrollPosition = window.scrollY;
+  const button = event.target.closest('[data-subcategory]');
+  if (!button) return;
   activeSubcategory = button.dataset.subcategory;
-  $('#subcategories').querySelectorAll('.subcategory').forEach(item => item.classList.toggle('is-active', item === button));
-  visibleCount = 20; renderCatalog();
-  restoreScroll(scrollPosition);
+  visibleCount = 20;
+  renderSubcategories();
+  renderCollection();
 });
-document.addEventListener('click', event => { const button = event.target.closest('.product-open'); if (button) openProduct(button.dataset.id); });
+
+$('#catalog-menu-toggle').addEventListener('click', openCatalogMenu);
+$('#browse-button').addEventListener('click', openCatalogMenu);
+$('#hero-catalog-button').addEventListener('click', openCatalogMenu);
+$('#catalog-menu-close').addEventListener('click', closeCatalogMenu);
+$('#menu-backdrop').addEventListener('click', closeCatalogMenu);
+$('#header-search').addEventListener('click', () => { $('#catalogo').scrollIntoView({ behavior: 'smooth' }); setTimeout(() => $('#search').focus(), 500); });
 $('#search').addEventListener('input', resetAndRender);
 $('#sort').addEventListener('change', resetAndRender);
-$('#load-more').addEventListener('click', () => { visibleCount += 20; renderCatalog(); });
+$('#load-more').addEventListener('click', () => { visibleCount += 20; renderCollection(); });
 $('#dialog-close').addEventListener('click', () => $('#product-dialog').close());
 $('#product-dialog').addEventListener('click', event => { if (event.target === $('#product-dialog')) $('#product-dialog').close(); });
+document.addEventListener('keydown', event => { if (event.key === 'Escape') closeCatalogMenu(); });
 
 renderHero();
 renderFeatured();
-renderCategories();
+renderNavigation();
 renderSubcategories();
-renderCatalog();
+renderCollection();
