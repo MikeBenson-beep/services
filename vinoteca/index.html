@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Arte Líquido. Curaduría de vinos, destilados y bebidas exclusivas. Venta mayorista y minorista, con envíos a todo el país.">
-  <meta name="theme-color" content="#160d0d">
+  <meta name="theme-color" content="#ffffff">
   <title>Arte Líquido — Vinos & Bebidas</title>
   <link rel="icon" href="assets/arte-liquido-logo.jpg" type="image/jpeg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,10 +12,11 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="stability.css">
+  <link rel="stylesheet" href="house.css">
 </head>
 <body>
   <div class="topline">
-    <span>Envíos a todo el país</span><i></i><span>Venta mayorista y minorista</span><i></i><span>Humboldt 2236</span>
+    <span>Envíos a todo el país</span><i></i><span>Venta mayorista y minorista</span><i></i><span>Asesoramiento personalizado</span>
   </div>
 
   <header class="site-header">
@@ -24,9 +25,11 @@
       <span class="brand-type">Arte <em>Líquido</em><small>Winery & spirits</small></span>
     </a>
     <nav class="site-nav" aria-label="Navegación principal">
-      <button class="nav-catalog" id="catalog-menu-toggle" type="button" aria-expanded="false" aria-controls="catalog-menu">Catálogo <span>⌄</span></button>
-      <a href="#seleccion">Elegidos</a>
-      <a href="#contacto">Contacto</a>
+      <button type="button" data-category="family:vinos">Vinos & burbujas</button>
+      <button type="button" data-category="family:destilados">Destilados</button>
+      <button type="button" data-category="aperitivos">Aperitivos</button>
+      <button type="button" data-category="family:regalos">Regalos & bar</button>
+      <button class="nav-catalog" id="catalog-menu-toggle" type="button" aria-expanded="false" aria-controls="catalog-menu">Más <span>⌄</span></button>
     </nav>
     <div class="header-actions">
       <button class="header-search" id="header-search" type="button" aria-label="Buscar en el catálogo">
@@ -49,10 +52,10 @@
     <section class="hero">
       <div class="hero-glow"></div>
       <div class="hero-copy">
-        <p class="kicker"><span></span>Curaduría líquida · Buenos Aires</p>
-        <h1>Botellas con<br><em>algo que decir.</em></h1>
-        <p class="hero-lead">Vinos de autor, destilados y hallazgos para una mesa que se recuerda.</p>
-        <div class="hero-actions"><button class="button button-solid" id="hero-catalog-button" type="button">Explorar catálogo <span>→</span></button></div>
+        <p class="kicker">Selección de la casa</p>
+        <h1>Una cava para<br>descubrir.</h1>
+        <p class="hero-lead">Vinos, destilados y objetos elegidos con criterio. Encontrá algo especial para tu mesa, un regalo o la próxima botella.</p>
+        <div class="hero-actions"><button class="button button-solid" id="hero-catalog-button" type="button">VER CATÁLOGO</button></div>
         <div class="hero-stats">
           <div><strong id="product-total">200</strong><span>productos</span></div>
           <div><strong>15</strong><span>categorías</span></div>
@@ -63,7 +66,7 @@
         <span class="orbit orbit-one"></span><span class="orbit orbit-two"></span>
         <div class="hero-product hero-product-main" id="hero-product-main"></div>
         <div class="hero-product hero-product-side" id="hero-product-side"></div>
-        <p class="showcase-note">Selección de la casa<br><em>ediciones que valen la pena</em></p>
+        <p class="showcase-note">Gin Mare Mediterranean<br><em>Selección de autor</em></p>
       </div>
     </section>
 
