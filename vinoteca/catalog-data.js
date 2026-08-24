@@ -257,7 +257,7 @@ window.catalogProducts = [
     "stock": 3,
     "price": 12000,
     "salePrice": 9990,
-    "image": "assets/products/029.jpg",
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/dXv3FXRMS5XsCs4XQ9hDdxAkdl93%2Fthumb_280_c56ce7a7-45ab-43fc-b61e-56f04c7fa2e0.jpg?alt=media",
     "url": "https://arte-liquido.kyte.site/es/p/copa-aperol-spritz/1725989328054-dXv3F"
   },
   {
@@ -266,7 +266,7 @@ window.catalogProducts = [
     "stock": 3,
     "price": 13000,
     "salePrice": 12000,
-    "image": "assets/products/030.jpg",
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/dXv3FXRMS5XsCs4XQ9hDdxAkdl93%2Fthumb_280_aiwzvceCj5MBH%2BghuQRU9w%3D%3D.jpg?alt=media",
     "url": "https://arte-liquido.kyte.site/es/p/copa-aristides-wine/1763683682344-dXv3F"
   },
   {
@@ -275,7 +275,7 @@ window.catalogProducts = [
     "stock": 1,
     "price": 40000,
     "salePrice": null,
-    "image": "assets/products/031.jpg",
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/dXv3FXRMS5XsCs4XQ9hDdxAkdl93%2Fthumb_280_bj9bsQmtj2zDUdiCfbNLFA%3D%3D.jpg?alt=media",
     "url": "https://arte-liquido.kyte.site/es/p/copa-chica-de-licor-antigua-x-4/1782343724428-dXv3F"
   },
   {
@@ -284,7 +284,7 @@ window.catalogProducts = [
     "stock": 1,
     "price": 30000,
     "salePrice": null,
-    "image": "assets/products/032.jpg",
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/dXv3FXRMS5XsCs4XQ9hDdxAkdl93%2Fthumb_280_b5Fq8G%2BoZX6WbL0R35WgQ%3D%3D.jpg?alt=media",
     "url": "https://arte-liquido.kyte.site/es/p/copa-cristal-de-postre-antiguo/1782343033119-dXv3F"
   },
   {
@@ -293,7 +293,7 @@ window.catalogProducts = [
     "stock": 1,
     "price": 40000,
     "salePrice": null,
-    "image": "assets/products/033.jpg",
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/dXv3FXRMS5XsCs4XQ9hDdxAkdl93%2Fthumb_280_QjtyAOx3PSHIKaS05YdHSg%3D%3D.jpg?alt=media",
     "url": "https://arte-liquido.kyte.site/es/p/copa-de-agua-antigua-x-5/1782417294394-dXv3F"
   },
   {
@@ -302,7 +302,7 @@ window.catalogProducts = [
     "stock": 1,
     "price": 14000,
     "salePrice": 12000,
-    "image": "assets/products/034.jpg",
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/dXv3FXRMS5XsCs4XQ9hDdxAkdl93%2Fthumb_280_h5qgbna%2Bp8EAgranc6pwFA%3D%3D.jpg?alt=media",
     "url": "https://arte-liquido.kyte.site/es/p/copa-de-gin-beefeater-50505050505050505/1709408432335-dXv3F"
   },
   {
@@ -311,7 +311,7 @@ window.catalogProducts = [
     "stock": 2,
     "price": 13000,
     "salePrice": 12000,
-    "image": "assets/products/035.jpg",
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/dXv3FXRMS5XsCs4XQ9hDdxAkdl93%2Fthumb_280_zMCU6AWwFb3xDhXAfVOnmA%3D%3D.jpg?alt=media",
     "url": "https://arte-liquido.kyte.site/es/p/copa-de-gin-bombay-sapphirre/1709408263413-dXv3F"
   },
   {
@@ -320,7 +320,7 @@ window.catalogProducts = [
     "stock": 2,
     "price": 14000,
     "salePrice": 12000,
-    "image": "assets/products/036.jpg",
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/dXv3FXRMS5XsCs4XQ9hDdxAkdl93%2Fthumb_280_5chbEqhxiVF0mwXmTVKTg%3D%3D.jpg?alt=media",
     "url": "https://arte-liquido.kyte.site/es/p/copa-de-gin-bulldog-negra-70707070707070707/1709408567734-dXv3F"
   },
   {
@@ -329,7 +329,7 @@ window.catalogProducts = [
     "stock": 4,
     "price": 15000,
     "salePrice": null,
-    "image": "assets/products/037.jpg",
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/dXv3FXRMS5XsCs4XQ9hDdxAkdl93%2Fthumb_280_d8VPGNmqpp59pJ10n2E1qg%3D%3D.jpg?alt=media",
     "url": "https://arte-liquido.kyte.site/es/p/copa-de-gin-classic-20202020202020/1709408187339-dXv3F"
   },
   {
@@ -338,7 +338,7 @@ window.catalogProducts = [
     "stock": 5,
     "price": 14000,
     "salePrice": 12000,
-    "image": "assets/products/038.jpg",
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/dXv3FXRMS5XsCs4XQ9hDdxAkdl93%2Fthumb_280_YFDj19oj4NMMQObsoD70Ag%3D%3D.jpg?alt=media",
     "url": "https://arte-liquido.kyte.site/es/p/copa-de-gin-gordon-s/1709408486302-dXv3F"
   },
   {
@@ -347,7 +347,7 @@ window.catalogProducts = [
     "stock": 1,
     "price": 40000,
     "salePrice": null,
-    "image": "assets/products/039.jpg",
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/dXv3FXRMS5XsCs4XQ9hDdxAkdl93%2Fthumb_280_ANFeRlZIeKpeiA1NCXeAGg%3D%3D.jpg?alt=media",
     "url": "https://arte-liquido.kyte.site/es/p/copa-de-licor-antiguo-x-5/1782417401857-dXv3F"
   },
   {
@@ -356,7 +356,7 @@ window.catalogProducts = [
     "stock": 1,
     "price": 45000,
     "salePrice": null,
-    "image": "assets/products/040.jpg",
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/dXv3FXRMS5XsCs4XQ9hDdxAkdl93%2Fthumb_280_bcl84xGA56xY47yWw%2BMOkQ%3D%3D.jpg?alt=media",
     "url": "https://arte-liquido.kyte.site/es/p/copa-de-licor-mediano-antiguo-x-7/1782416276080-dXv3F"
   },
   {
@@ -365,7 +365,7 @@ window.catalogProducts = [
     "stock": 1,
     "price": 65000,
     "salePrice": null,
-    "image": "assets/products/041.jpg",
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/dXv3FXRMS5XsCs4XQ9hDdxAkdl93%2Fthumb_280_Nz3oIFKnvC0WZRjQLXRSpA%3D%3D.jpg?alt=media",
     "url": "https://arte-liquido.kyte.site/es/p/copa-de-licor-mini-antiguo-x-11/1782416040896-dXv3F"
   },
   {
@@ -374,7 +374,7 @@ window.catalogProducts = [
     "stock": 1,
     "price": 30000,
     "salePrice": null,
-    "image": "assets/products/042.jpg",
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/dXv3FXRMS5XsCs4XQ9hDdxAkdl93%2Fthumb_280_xHKZTLXVXcyO4e4Ll%2B4Q3g%3D%3D.jpg?alt=media",
     "url": "https://arte-liquido.kyte.site/es/p/copa-de-licor-mini-antiguo-x-3/1782417844199-dXv3F"
   },
   {
@@ -383,7 +383,7 @@ window.catalogProducts = [
     "stock": 1,
     "price": 75000,
     "salePrice": null,
-    "image": "assets/products/043.jpg",
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/dXv3FXRMS5XsCs4XQ9hDdxAkdl93%2Fthumb_280_9rEV0TBsclOTO2KsTksEg%3D%3D.jpg?alt=media",
     "url": "https://arte-liquido.kyte.site/es/p/copa-de-vino-antiguo-x-9/1782416760468-dXv3F"
   },
   {
@@ -392,7 +392,7 @@ window.catalogProducts = [
     "stock": 1,
     "price": 50000,
     "salePrice": null,
-    "image": "assets/products/044.jpg",
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/dXv3FXRMS5XsCs4XQ9hDdxAkdl93%2Fthumb_280_UNt3WIwu2zPn7qS%2BYRw34g%3D%3D.jpg?alt=media",
     "url": "https://arte-liquido.kyte.site/es/p/copa-flauta-baja-antigua-x-5/1782343139380-dXv3F"
   },
   {
@@ -401,7 +401,7 @@ window.catalogProducts = [
     "stock": 1,
     "price": 40000,
     "salePrice": null,
-    "image": "assets/products/045.jpg",
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/dXv3FXRMS5XsCs4XQ9hDdxAkdl93%2Fthumb_280_9I2zbrCmsvBXHB0uqZEhw%3D%3D.jpg?alt=media",
     "url": "https://arte-liquido.kyte.site/es/p/copa-mediana-de-licor-antigua-x-4/1782343651523-dXv3F"
   },
   {
@@ -410,7 +410,7 @@ window.catalogProducts = [
     "stock": 13,
     "price": 12000,
     "salePrice": 10000,
-    "image": "assets/products/046.jpg",
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/dXv3FXRMS5XsCs4XQ9hDdxAkdl93%2Fthumb_280_Ei4x7Dq7wwU5ixCHBgMjhg%3D%3D.jpg?alt=media",
     "url": "https://arte-liquido.kyte.site/es/p/copa-vidrio-malbec-650/1721311127161-dXv3F"
   },
   {
@@ -419,7 +419,7 @@ window.catalogProducts = [
     "stock": 1,
     "price": 50000,
     "salePrice": null,
-    "image": "assets/products/047.jpg",
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/dXv3FXRMS5XsCs4XQ9hDdxAkdl93%2Fthumb_280_FARbtdnZsCQCNtjQVxRj7A%3D%3D.jpg?alt=media",
     "url": "https://arte-liquido.kyte.site/es/p/copas-de-agua-antiguo-x-6/1782416504605-dXv3F"
   },
   {
@@ -428,7 +428,7 @@ window.catalogProducts = [
     "stock": 1,
     "price": 60000,
     "salePrice": null,
-    "image": "assets/products/048.jpg",
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/dXv3FXRMS5XsCs4XQ9hDdxAkdl93%2Fthumb_280_1egyYeRInDUp%2BG7m5zxOA%3D%3D.jpg?alt=media",
     "url": "https://arte-liquido.kyte.site/es/p/jgo-copas-champagne-vintage-cristal-x-4/1782342958473-dXv3F"
   },
   {
@@ -437,7 +437,7 @@ window.catalogProducts = [
     "stock": 1,
     "price": 190000,
     "salePrice": null,
-    "image": "assets/products/049.jpg",
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/dXv3FXRMS5XsCs4XQ9hDdxAkdl93%2Fthumb_280_OzPSqkkuLu0IO1jOSanxSA%3D%3D.jpg?alt=media",
     "url": "https://arte-liquido.kyte.site/es/p/juego-antiguo-de-whisky-sin-bandeja/1782342492091-dXv3F"
   },
   {
@@ -446,7 +446,7 @@ window.catalogProducts = [
     "stock": 1,
     "price": 650000,
     "salePrice": null,
-    "image": "assets/products/050.jpg",
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/dXv3FXRMS5XsCs4XQ9hDdxAkdl93%2Fthumb_280_RalQ2zWRo4S3Ut01BA7tBQ%3D%3D.jpg?alt=media",
     "url": "https://arte-liquido.kyte.site/es/p/juego-antiguo-de-whisky-plata-lappas/1782342392464-dXv3F"
   },
   {
@@ -455,7 +455,7 @@ window.catalogProducts = [
     "stock": 1,
     "price": 75000,
     "salePrice": 67500,
-    "image": "assets/products/051.jpg",
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/dXv3FXRMS5XsCs4XQ9hDdxAkdl93%2Fthumb_280_URDOo4LZR%2Bn1SGL0oKy7w%3D%3D.jpg?alt=media",
     "url": "https://arte-liquido.kyte.site/es/p/set-chivas-898989/1772583148066-dXv3F"
   },
   {
@@ -464,7 +464,7 @@ window.catalogProducts = [
     "stock": 6,
     "price": 11000,
     "salePrice": 9500,
-    "image": "assets/products/052.jpg",
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/dXv3FXRMS5XsCs4XQ9hDdxAkdl93%2Fthumb_280_581b0d97-21ac-49cd-a976-b9101c473500.jpg?alt=media",
     "url": "https://arte-liquido.kyte.site/es/p/shot-jagermeister/1725895908835-dXv3F"
   },
   {
@@ -1220,7 +1220,7 @@ window.catalogProducts = [
     "stock": 5,
     "price": 22000,
     "salePrice": 20000,
-    "image": "assets/products/116.jpg",
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/dXv3FXRMS5XsCs4XQ9hDdxAkdl93%2Fthumb_280_muQCPisN6482zqKLWzFqDA%3D%3D.jpg?alt=media",
     "url": "https://arte-liquido.kyte.site/es/p/calavera--botella-decanter/1766427814363-dXv3F"
   },
   {
@@ -1229,7 +1229,7 @@ window.catalogProducts = [
     "stock": 1,
     "price": 165000,
     "salePrice": 140250,
-    "image": "assets/products/117.jpg",
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/dXv3FXRMS5XsCs4XQ9hDdxAkdl93%2Fthumb_280_DxE59BoVzQtqvQ0aQM1%2BcA%3D%3D.jpg?alt=media",
     "url": "https://arte-liquido.kyte.site/es/p/coleccion-la-trifulca-30815/1765400882887-dXv3F"
   },
   {
@@ -1238,7 +1238,7 @@ window.catalogProducts = [
     "stock": 2,
     "price": 150000,
     "salePrice": 133860,
-    "image": "assets/products/118.jpg",
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/dXv3FXRMS5XsCs4XQ9hDdxAkdl93%2Fthumb_280_P3u3doquxA4yy7eFwfvVOQ%3D%3D.jpg?alt=media",
     "url": "https://arte-liquido.kyte.site/es/p/forastero-red-blend-estuche-madera-30607/1765397668600-dXv3F"
   },
   {
@@ -1247,7 +1247,7 @@ window.catalogProducts = [
     "stock": 3,
     "price": 55900,
     "salePrice": 49500,
-    "image": "assets/products/119.png",
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/dXv3FXRMS5XsCs4XQ9hDdxAkdl93%2Fthumb_280_5eaT4kt25t%2BBFGF1UrGRlg%3D%3D.jpg?alt=media",
     "url": "https://arte-liquido.kyte.site/es/p/jorge-rubio-gran-reserva--magnum-coleccion/1748880387550-dXv3F"
   },
   {
@@ -1256,7 +1256,7 @@ window.catalogProducts = [
     "stock": 1,
     "price": 72000,
     "salePrice": 61000,
-    "image": "assets/products/120.png",
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/dXv3FXRMS5XsCs4XQ9hDdxAkdl93%2Fthumb_280_I37SbeW%2Bem7Yrahx%2BuiSDw%3D%3D.jpg?alt=media",
     "url": "https://arte-liquido.kyte.site/es/p/kit-regalo-cognac-viejo-gabriel-1989/1748880520921-dXv3F"
   },
   {
@@ -1265,7 +1265,7 @@ window.catalogProducts = [
     "stock": 2,
     "price": 21000,
     "salePrice": 17800,
-    "image": "assets/products/121.jpg",
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/dXv3FXRMS5XsCs4XQ9hDdxAkdl93%2Fthumb_280_TsqOH7ApuLcJybSoDMxg%3D%3D.jpg?alt=media",
     "url": "https://arte-liquido.kyte.site/es/p/set-sacacorchos-de-presicion-8977/1766427350607-dXv3F"
   },
   {
@@ -1274,7 +1274,7 @@ window.catalogProducts = [
     "stock": 4,
     "price": 7500,
     "salePrice": 7000,
-    "image": "assets/products/122.jpg",
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/dXv3FXRMS5XsCs4XQ9hDdxAkdl93%2Fthumb_280_RwKU1xGYGC0h28Sx3jA8iQ%3D%3D.jpg?alt=media",
     "url": "https://arte-liquido.kyte.site/es/p/sparkling-ice-rock/1756917156998-dXv3F"
   },
   {
@@ -1283,7 +1283,7 @@ window.catalogProducts = [
     "stock": 4,
     "price": 135000,
     "salePrice": 115000,
-    "image": "assets/products/123.jpg",
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/dXv3FXRMS5XsCs4XQ9hDdxAkdl93%2Fthumb_280_s7igvepxNp%2BEdoGWj6mdfA%3D%3D.jpg?alt=media",
     "url": "https://arte-liquido.kyte.site/es/p/box-madera-gran-malabarista-x-3-30504/1765400156498-dXv3F"
   },
   {
@@ -1292,7 +1292,7 @@ window.catalogProducts = [
     "stock": 1,
     "price": 28000,
     "salePrice": 25500,
-    "image": "assets/products/124.jpg",
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/dXv3FXRMS5XsCs4XQ9hDdxAkdl93%2Fthumb_280_88a98826-c7a6-4276-a3aa-1884c8c559fe.jpg?alt=media",
     "url": "https://arte-liquido.kyte.site/es/p/electrico-wine-set-659896/1759431424660-dXv3F"
   },
   {
@@ -1301,7 +1301,7 @@ window.catalogProducts = [
     "stock": 2,
     "price": 65000,
     "salePrice": null,
-    "image": "assets/products/125.jpg",
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/dXv3FXRMS5XsCs4XQ9hDdxAkdl93%2Fthumb_280_ypZcjAvKfAEJj%2BIMJaZVg%3D%3D.jpg?alt=media",
     "url": "https://arte-liquido.kyte.site/es/p/kit-ahumador-de-cocteles-whisky-y-chips-de-madera/1786405689055-dXv3F"
   },
   {
@@ -1310,7 +1310,7 @@ window.catalogProducts = [
     "stock": 9,
     "price": 15000,
     "salePrice": 13900,
-    "image": "assets/products/126.jpg",
+    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/dXv3FXRMS5XsCs4XQ9hDdxAkdl93%2Fthumb_280_nr9Lmf0b4CFW5LR%2B35KjBQ%3D%3D.jpg?alt=media",
     "url": "https://arte-liquido.kyte.site/es/p/lindt-85-cocoa-rich-dark-046920028363/1759430076851-dXv3F"
   },
   {
