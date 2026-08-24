@@ -5,7 +5,7 @@ const normal = value => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').t
 const safe = value => String(value).replace(/[&<>'"]/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' })[char]);
 const imageFor = (product, full = false) => {
   const image = product.image || 'assets/arte-liquido-logo.jpg';
-  return full ? image.replace('thumb_280_', '') : image;
+  return image.replace('thumb_280_', '');
 };
 
 const categoryMeta = {
@@ -115,7 +115,7 @@ function productCard(product, featured = false) {
   const discount = discountFor(product);
   return `<article class="product-card${featured ? ' is-featured' : ''}">
     <button class="product-open" type="button" data-id="${product.id}" aria-label="Ver ${safe(product.name)}">
-      <span class="product-visual"><img loading="lazy" src="${safe(imageFor(product, featured))}" alt="${safe(product.name)}">${discount ? `<small class="sale-badge">-${discount}%</small>` : ''}${product.stock === 0 ? '<small class="stock-badge">Sin stock</small>' : ''}<i class="view-product">Ver detalle</i></span>
+      <span class="product-visual"><img loading="lazy" decoding="async" src="${safe(imageFor(product, featured))}" alt="${safe(product.name)}">${discount ? `<small class="sale-badge">-${discount}%</small>` : ''}${product.stock === 0 ? '<small class="stock-badge">Sin stock</small>' : ''}<i class="view-product">Ver detalle</i></span>
       <span class="product-body"><small>${safe(categoryMeta[product.category]?.short || product.category)}</small><strong>${safe(product.name)}</strong><span class="price-line">${discount ? `<s>${money(product.price)}</s>` : ''}<b>${money(currentPrice(product))}</b></span></span>
     </button>
   </article>`;
