@@ -11,6 +11,7 @@
   --display: "Newsreader", Georgia, serif;
 }
 
+html, body { max-width: 100%; overflow-x: hidden; }
 body { color: #090909; background: #fff; }
 .topline { height: 28px; color: #fff; background: #111; font-size: 9px; letter-spacing: .12em; }
 .topline i { background: #fff; opacity: .5; }
@@ -184,11 +185,11 @@ body { color: #090909; background: #fff; }
 @media (max-width: 720px) {
   .topline { justify-content: center; }
   .site-header { height: 82px; padding: 0 12px; grid-template-columns: minmax(0, 1fr) auto; gap: 10px; }
-  .brand { gap: 12px; }
+  .brand { min-width: 0; max-width: 100%; gap: 12px; flex-shrink: 1; overflow: hidden; }
   .brand-mark { width: 54px; height: 54px; flex-basis: 54px; }
-  .brand-type { font-size: 25px; }
+  .brand-type { min-width: 0; overflow: hidden; font-size: 25px; text-overflow: ellipsis; }
   .brand-type small { margin-top: 6px; font-size: 7px; }
-  .header-cta { padding: 9px 10px; font-size: 9px; }
+  .header-cta { flex-shrink: 0; padding: 9px 10px; font-size: 9px; white-space: nowrap; }
   .catalog-menu-panel { top: auto; }
   .menu-backdrop { top: 0; }
   .hero { display: flex; flex-direction: column; }
@@ -197,6 +198,8 @@ body { color: #090909; background: #fff; }
   .hero-showcase { min-height: 380px; order: 1; }
   .hero-product-side { display: block; }
   .hero-product-side img { padding: 24px; object-fit: contain; background: #ece9e3; }
+  .family-navigation { margin: 0 0 32px; padding: 0; display: grid; grid-template-columns: 1fr; gap: 12px; overflow: visible; }
+  .family-card { min-width: 0; }
   .featured, .catalog { padding-top: 72px; }
   .section-head h2, .catalog-title-row h2 { font-size: 54px; }
   .product-visual, .product-grid .product-visual { height: 250px; }
