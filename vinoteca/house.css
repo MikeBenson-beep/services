@@ -16,19 +16,19 @@ body { color: #090909; background: #fff; }
 .topline i { background: #fff; opacity: .5; }
 
 .site-header {
-  height: 86px;
+  height: 108px;
   padding: 0 4.2vw;
-  grid-template-columns: 270px 1fr auto;
+  grid-template-columns: 340px 1fr auto;
   gap: 20px;
   background: rgba(255,255,255,.97);
   border-color: #e7e7e7;
   backdrop-filter: blur(12px);
 }
-.brand { gap: 14px; }
-.brand-mark { width: 54px; height: 54px; border: 0; }
-.brand-type { color: #090909; font-family: var(--display); font-size: 28px; font-weight: 600; letter-spacing: -.03em; }
+.brand { gap: 18px; }
+.brand-mark { width: 78px; height: 78px; border: 0; }
+.brand-type { color: #090909; font-family: var(--display); font-size: 37px; font-weight: 600; letter-spacing: -.035em; }
 .brand-type em { color: inherit; }
-.brand-type small { margin-top: 7px; font-size: 8px; letter-spacing: .22em; }
+.brand-type small { margin-top: 9px; font-size: 10px; letter-spacing: .21em; }
 .site-nav { justify-self: center; gap: clamp(14px, 2.2vw, 34px); }
 .site-nav button {
   padding: 30px 0;
@@ -48,13 +48,13 @@ body { color: #090909; background: #fff; }
 .header-cta { padding: 11px 17px; border: 1px solid #151515; border-radius: 2px; color: #111; background: transparent; }
 
 .catalog-menu-panel {
-  top: 114px;
+  top: 136px;
   padding: 30px 5vw 27px;
   background: #fff;
   border-top: 1px solid #e7e7e7;
   box-shadow: 0 18px 40px rgba(0,0,0,.08);
 }
-.menu-backdrop { top: 114px; background: rgba(0,0,0,.18); backdrop-filter: none; }
+.menu-backdrop { top: 136px; background: rgba(0,0,0,.18); backdrop-filter: none; }
 .menu-heading { padding-bottom: 18px; }
 .menu-heading span, .menu-group > span { color: #111; font-weight: 600; }
 .menu-heading h2 { font: 600 36px/1 var(--sans); letter-spacing: -.035em; }
@@ -165,7 +165,10 @@ body { color: #090909; background: #fff; }
 .footer-brand > span { font-family: var(--sans); }
 
 @media (max-width: 1100px) {
-  .site-header { grid-template-columns: 240px 1fr auto; }
+  .site-header { height: 98px; grid-template-columns: 285px 1fr auto; }
+  .brand-mark { width: 68px; height: 68px; }
+  .brand-type { font-size: 32px; }
+  .brand-type small { font-size: 8px; }
   .site-nav { gap: 14px; }
   .site-nav button { font-size: 14px; }
   .header-cta { display: none; }
@@ -179,11 +182,11 @@ body { color: #090909; background: #fff; }
 
 @media (max-width: 720px) {
   .topline { justify-content: center; }
-  .site-header { height: 70px; }
-  .brand { gap: 10px; }
-  .brand-mark { width: 42px; height: 42px; }
-  .brand-type { font-size: 21px; }
-  .brand-type small { margin-top: 5px; font-size: 6.5px; }
+  .site-header { height: 82px; }
+  .brand { gap: 12px; }
+  .brand-mark { width: 54px; height: 54px; }
+  .brand-type { font-size: 27px; }
+  .brand-type small { margin-top: 6px; font-size: 7px; }
   .catalog-menu-panel { top: auto; }
   .menu-backdrop { top: 0; }
   .hero { display: flex; flex-direction: column; }
