@@ -1,4 +1,6 @@
-const products = (window.catalogProducts || []).map((product, id) => ({ ...product, id }));
+const products = (window.catalogProducts || [])
+  .filter(product => product.category !== 'farockaway')
+  .map((product, id) => ({ ...product, id }));
 const $ = selector => document.querySelector(selector);
 const money = value => `$${new Intl.NumberFormat('es-AR').format(value)}`;
 const normal = value => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
@@ -31,7 +33,7 @@ const families = [
   { id: 'destilados', name: 'Destilados', tagline: 'Whisky, gin, vodka y licores', categories: ['whiskys', 'gin', 'vodka', 'licores', 'aperitivos'] },
   { id: 'cervezas', name: 'Cervezas', tagline: 'Clásicas, artesanales y packs', categories: ['cervezas'] },
   { id: 'regalos', name: 'Regalos & bar', tagline: 'Regalería, cristalería y botánicos', categories: ['regalleria', 'cristaleria', 'mixologia-botanica', 'promociones'] },
-  { id: 'alternativas', name: 'Sin alcohol & cocina', tagline: 'Algo rico para cada momento', categories: ['sin-alcohol', 'farockaway'] }
+  { id: 'alternativas', name: 'Sin alcohol', tagline: 'Alternativas para todos', categories: ['sin-alcohol'] }
 ];
 
 const curatedNames = [
