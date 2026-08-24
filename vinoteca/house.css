@@ -134,8 +134,19 @@ body { background: #fff; }
 .collection-copy h3 { font: 500 clamp(54px, 5.7vw, 79px)/.92 var(--display); letter-spacing: -.045em; }
 .collection-copy p { color: #eee; }
 .collection-image { filter: saturate(.9) contrast(1.03); }
-.subcategory { border-radius: 0; }
-.subcategory.is-active { background: #111; }
+.subcategory-row { padding: 18px 0; gap: 9px; }
+.subcategory {
+  padding: 12px 19px;
+  border: 1px solid rgba(107,40,57,.16);
+  border-radius: 3px;
+  color: var(--wine);
+  background: #f7f1f3;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -.01em;
+}
+.subcategory:hover { color: #fff; background: #8a3b50; }
+.subcategory.is-active { color: #fff; background: var(--wine); border-color: var(--wine); }
 .product-grid { gap: 38px 25px; }
 .product-grid .product-visual { height: 360px; }
 .load-more { border-radius: 6px; }
