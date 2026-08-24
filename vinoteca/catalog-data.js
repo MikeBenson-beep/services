@@ -905,7 +905,7 @@ window.catalogProducts = [
     "stock": 1,
     "price": 63700,
     "salePrice": null,
-    "image": "https://images-cdn.kyte.site/v0/b/kyte-7c484.appspot.com/o/dXv3FXRMS5XsCs4XQ9hDdxAkdl93%2Fthumb_280_YyCl3AomhdZmJ0cHDrZBg%3D%3D.jpg?alt=media",
+    "image": "assets/gin-mare-official.png",
     "url": "https://arte-liquido.kyte.site/es/p/gin-mare-mediterranean-700-ml-coleccion-de-autor-espana/1785611195890-dXv3F"
   },
   {
